@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/leave_panel.gd" type="Script" id=1]
+[ext_resource path="res://graphics/ui/panels/leave_panel.png" type="Texture" id=2]
+[ext_resource path="res://scenes/small_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/ui/main_screen/save.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "open_panel"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("core:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -923.307 ), Vector2( 0, 96.2958 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="leave_panel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+pnl_clr = Color( 0.886275, 0.133333, 0.133333, 1 )
+buttons = [ NodePath("core/yes"), NodePath("core/no") ]
+
+[node name="color_rect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="core" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1377.08, -2.50107 )
+
+[node name="back" type="Button" parent="core"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="panel_img" type="TextureRect" parent="core"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -282.5
+margin_top = -217.0
+margin_right = 282.5
+margin_bottom = 217.0
+texture = ExtResource( 2 )
+
+[node name="yes" parent="core" instance=ExtResource( 3 )]
+editor/display_folded = true
+margin_left = -254.67
+margin_top = 35.4902
+margin_right = -11.6703
+margin_bottom = 155.49
+button_name = "Yes"
+unhiglighted_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[node name="texture_rect2" type="TextureRect" parent="core/yes"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -82.9538
+margin_top = -31.8845
+margin_right = -8.95383
+margin_bottom = 42.1155
+texture = ExtResource( 4 )
+
+[node name="no" parent="core" instance=ExtResource( 3 )]
+margin_left = 10.0536
+margin_top = 35.4902
+margin_right = 253.054
+margin_bottom = 155.49
+button_name = "No"
+highlight = true
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/open_panel = SubResource( 1 )
+[connection signal="pressed" from="core/back" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="core/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="core/no" to="." method="_on_no_pressed"]

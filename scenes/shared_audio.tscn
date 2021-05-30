@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/shared_audio.gd" type="Script" id=1]
+[ext_resource path="res://audio/sound_fx/button_click.wav" type="AudioStream" id=2]
+[ext_resource path="res://audio/sound_fx/end_game.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/sound_fx/lvl_up1.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/music/music1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/music/music2.ogg" type="AudioStream" id=6]
+
+[node name="shared_audio" type="Node2D"]
+position = Vector2( 360, 640 )
+script = ExtResource( 1 )
+sound_effects = {
+"button_click": ExtResource( 2 ),
+"end_game": ExtResource( 3 ),
+"pop_around": ExtResource( 4 )
+}
+music_samples = {
+"music1": ExtResource( 5 ),
+"music2": ExtResource( 6 )
+}
+
+[node name="sound_fx" type="AudioStreamPlayer2D" parent="."]
+bus = "Sound"
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+bus = "Music"

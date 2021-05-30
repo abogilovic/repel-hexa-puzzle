@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/bool_slider.gd" type="Script" id=1]
+[ext_resource path="res://graphics/ui/main_screen/bool_slider0.png" type="Texture" id=2]
+[ext_resource path="res://graphics/ui/main_screen/bool_slider1.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "on_slider"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("circle:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21, 16 ), Vector2( 121, 16 ) ]
+}
+
+[node name="bool_slider" type="Button"]
+margin_right = 230.0
+margin_bottom = 120.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 1 )
+off_colors = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[node name="bg" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 230.0
+margin_bottom = 120.0
+texture = ExtResource( 2 )
+
+[node name="circle" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -44.0
+margin_right = -6.0
+margin_bottom = 44.0
+texture = ExtResource( 3 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/on_slider = SubResource( 1 )
+[connection signal="pressed" from="." to="." method="switch_value"]

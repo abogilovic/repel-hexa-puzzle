@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bad_hexa.wav-06d1daa93b5685d7630a04a7064c7f33.sample"
+
+[deps]
+
+source_file="res://audio/sound_fx/bad_hexa.wav"
+dest_files=[ "res://.import/bad_hexa.wav-06d1daa93b5685d7630a04a7064c7f33.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

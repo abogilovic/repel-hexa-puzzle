@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/my_button.gd" type="Script" id=1]
+[ext_resource path="res://graphics/ui/panels/small_button.png" type="Texture" id=2]
+[ext_resource path="res://Autumn Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+outline_size = 3
+outline_color = Color( 0, 0, 0, 0.392157 )
+extra_spacing_bottom = 15
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ) ]
+}
+
+[node name="small_button" type="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -640.0
+margin_right = -117.0
+margin_bottom = -520.0
+rect_pivot_offset = Vector2( 121.5, 60 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 1 )
+fixed_highlight = true
+unhiglighted_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[node name="texture_rect" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 243.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 242, 59.5 )
+texture = ExtResource( 2 )
+
+[node name="label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.5
+margin_top = -50.0
+margin_right = 4.5
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/button_down = SubResource( 2 )
+[connection signal="button_down" from="." to="animation_player" method="play" binds= [ "button_down" ]]
+[connection signal="button_up" from="." to="animation_player" method="play_backwards" binds= [ "button_down" ]]
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

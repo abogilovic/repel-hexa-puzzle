@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/repel_game_controller.gd" type="Script" id=1]
+[ext_resource path="res://scenes/hexa_field.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/hexa_figure.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/hexa_main_figure.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/hexa_bad_figure.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 0.01
+
+[node name="game_controller" type="Node"]
+script = ExtResource( 1 )
+dimensions = [ 9, 7 ]
+row_play_space = [ 0.11, 0.9 ]
+col_play_space = [ 0.02, 0.98 ]
+hexa_original_width = 200
+hexa_field = ExtResource( 2 )
+hexa_figure = ExtResource( 3 )
+hexa_figure_main = ExtResource( 4 )
+hexa_figure_bad = ExtResource( 5 )
+
+[node name="mouse_pointer" type="Area2D" parent="."]
+monitorable = false
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="mouse_pointer"]
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0

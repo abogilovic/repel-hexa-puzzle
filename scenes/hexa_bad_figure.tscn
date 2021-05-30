@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/hexa_figure.gd" type="Script" id=1]
+[ext_resource path="res://scenes/point.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/sprites/bad_hexa/hexa_bad_figure_0.png" type="Texture" id=3]
+[ext_resource path="res://graphics/sprites/bad_hexa/hexa_bad_figure_1.png" type="Texture" id=4]
+[ext_resource path="res://graphics/sprites/bad_hexa/hexa_bad_figure_2.png" type="Texture" id=5]
+[ext_resource path="res://graphics/sprites/hexa/hexa_figure_0.png" type="Texture" id=6]
+[ext_resource path="res://animations/bad_place.tres" type="Animation" id=7]
+[ext_resource path="res://animations/pop.tres" type="Animation" id=8]
+
+[node name="hexa_bad_figure" type="KinematicBody2D"]
+z_index = 2
+script = ExtResource( 1 )
+point = ExtResource( 2 )
+type = 3
+moving_speed = 400
+merge_multiplier_speed = 65
+
+[node name="sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0.192157, 0.192157, 1 )
+texture = ExtResource( 3 )
+
+[node name="sprite3" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="sprite4" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="sprite2" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/bad_place = ExtResource( 7 )
+anims/pop = ExtResource( 8 )
+
+[node name="audio_stream_player_2d" type="AudioStreamPlayer2D" parent="."]
+bus = "Sound"

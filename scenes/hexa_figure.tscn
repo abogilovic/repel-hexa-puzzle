@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/hexa_figure.gd" type="Script" id=1]
+[ext_resource path="res://scenes/point.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/sprites/hexa/hexa_figure_1.png" type="Texture" id=3]
+[ext_resource path="res://graphics/sprites/hexa/hexa_figure_0.png" type="Texture" id=4]
+[ext_resource path="res://graphics/sprites/hexa/hexa_figure_2.png" type="Texture" id=5]
+[ext_resource path="res://graphics/sprites/hexa/hexa_figure_3.png" type="Texture" id=6]
+[ext_resource path="res://Autumn Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://animations/level_up.tres" type="Animation" id=8]
+[ext_resource path="res://animations/place.tres" type="Animation" id=9]
+[ext_resource path="res://animations/pop.tres" type="Animation" id=10]
+[ext_resource path="res://animations/repel.tres" type="Animation" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "about_merge"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, 20.0, 0.0 ]
+}
+
+[node name="hexa_figure" type="KinematicBody2D"]
+scale = Vector2( 1.14286, 1.14286 )
+z_index = 2
+script = ExtResource( 1 )
+point = ExtResource( 2 )
+type = 2
+moving_speed = 400
+merge_multiplier_speed = 65
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="sprite2" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="shade_transp" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="ind_abtomrg" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.67451 )
+margin_left = -70.0
+margin_top = -90.0
+margin_right = 70.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/about_merge = SubResource( 2 )
+anims/level_up = ExtResource( 8 )
+anims/place = ExtResource( 9 )
+anims/pop = ExtResource( 10 )
+anims/repel = ExtResource( 11 )
+
+[node name="audio_stream_player_2d" type="AudioStreamPlayer2D" parent="."]
+bus = "Sound"

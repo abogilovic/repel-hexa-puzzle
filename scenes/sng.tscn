@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/sng.gd" type="Script" id=1]
+[ext_resource path="res://scenes/game_controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/bg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/guide.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/rate_us_panel.tscn" type="PackedScene" id=6]
+
+[node name="sng" type="Node"]
+script = ExtResource( 1 )
+ps_gc = ExtResource( 2 )
+ps_ui_game = ExtResource( 3 )
+ps_bg_game = ExtResource( 4 )
+guide = ExtResource( 5 )
+rate_us = ExtResource( 6 )

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/point.gd" type="Script" id=1]
+[ext_resource path="res://Autumn Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://animations/point1.tres" type="Animation" id=3]
+[ext_resource path="res://animations/point2.tres" type="Animation" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 65
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="point" type="Node2D"]
+position = Vector2( -4, 0 )
+z_index = 20
+script = ExtResource( 1 )
+
+[node name="point_struct" type="Node2D" parent="."]
+
+[node name="color_rect" type="ColorRect" parent="point_struct"]
+margin_left = -29.7809
+margin_top = -31.402
+margin_right = 40.2191
+margin_bottom = 33.598
+color = Color( 0, 0, 0, 0.0588235 )
+
+[node name="point" type="Label" parent="point_struct"]
+margin_left = -22.9489
+margin_top = -39.592
+margin_right = 10.0511
+margin_bottom = 39.408
+grow_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 2
+
+[node name="multiplier" type="Label" parent="point_struct"]
+modulate = Color( 1, 1, 1, 0.745098 )
+margin_left = 14.3234
+margin_top = -33.2392
+margin_right = 54.3234
+margin_bottom = 27.7608
+custom_fonts/font = SubResource( 2 )
+text = "2"
+
+[node name="x" type="Label" parent="point_struct"]
+modulate = Color( 1, 1, 1, 0.745098 )
+margin_left = 13.5047
+margin_top = -13.6576
+margin_right = 43.5047
+margin_bottom = 59.3424
+custom_fonts/font = SubResource( 3 )
+text = "x"
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/point1 = ExtResource( 3 )
+anims/point2 = ExtResource( 4 )

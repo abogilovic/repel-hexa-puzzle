@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lvl_up2.wav-a1e88ae66b56db5e35160cb659eee44c.sample"
+
+[deps]
+
+source_file="res://audio/sound_fx/lvl_up2.wav"
+dest_files=[ "res://.import/lvl_up2.wav-a1e88ae66b56db5e35160cb659eee44c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

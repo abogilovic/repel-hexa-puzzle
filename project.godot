@@ -1,0 +1,107 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "BG",
+"language": "GDScript",
+"path": "res://scripts/bg.gd"
+}, {
+"base": "Node2D",
+"class": "HexaField",
+"language": "GDScript",
+"path": "res://scripts/hexa_field.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "HexaFigure",
+"language": "GDScript",
+"path": "res://scripts/hexa_figure.gd"
+}, {
+"base": "Node2D",
+"class": "MainNode",
+"language": "GDScript",
+"path": "res://scripts/main_node.gd"
+}, {
+"base": "Node",
+"class": "MainSingleton",
+"language": "GDScript",
+"path": "res://scripts/sng.gd"
+}, {
+"base": "Button",
+"class": "MyButton",
+"language": "GDScript",
+"path": "res://scripts/my_button.gd"
+}, {
+"base": "Node",
+"class": "RepelGameController",
+"language": "GDScript",
+"path": "res://scripts/repel_game_controller.gd"
+}, {
+"base": "CanvasLayer",
+"class": "UI",
+"language": "GDScript",
+"path": "res://scripts/ui.gd"
+} ]
+_global_script_class_icons={
+"BG": "",
+"HexaField": "",
+"HexaFigure": "",
+"MainNode": "",
+"MainSingleton": "",
+"MyButton": "",
+"RepelGameController": "",
+"UI": ""
+}
+
+[android]
+
+modules="org/godotengine/godot/GodotAdMob"
+
+[application]
+
+config/name="Repel - Hexa Puzzle"
+run/main_scene="res://scenes/main_screen.tscn"
+boot_splash/image="res://graphics/byteblast_simple_splash.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
+config/icon="res://graphics/repel_icon_round.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
+
+[autoload]
+
+sng="*res://scenes/sng.tscn"
+save_system="*res://scenes/save_system.tscn"
+shared_audio="*res://scenes/shared_audio.tscn"
+ads="*res://scenes/ads.tscn"
+
+[debug]
+
+gdscript/warnings/enable=false
+
+[display]
+
+window/size/width=720
+window/size/height=1280
+window/size/always_on_top=true
+window/size/test_width=360
+window/size/test_height=640
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[node]
+
+name_casing=2
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false

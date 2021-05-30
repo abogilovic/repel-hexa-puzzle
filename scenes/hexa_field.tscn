@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/hexa_field.gd" type="Script" id=1]
+[ext_resource path="res://graphics/sprites/hexa_field/hexa_field.png" type="Texture" id=2]
+[ext_resource path="res://graphics/sprites/hexa_field/hexa_field_able_to_place.png" type="Texture" id=3]
+
+[node name="hexa_field" type="Node2D"]
+script = ExtResource( 1 )
+highlighted_color = Color( 1, 1, 1, 0.227451 )
+pointer_on_color = Color( 0.282353, 0.282353, 0.282353, 0.12549 )
+
+[node name="sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.12549 )
+texture = ExtResource( 2 )
+
+[node name="area_2d" type="Area2D" parent="."]
+position = Vector2( 0, 100 )
+monitoring = false
+
+[node name="collision_polygon_2d" type="CollisionPolygon2D" parent="area_2d"]
+polygon = PoolVector2Array( -50, -86.603, -100, 0, -50, 86.603, 50, 86.603, 100, 0, 50, -86.603 )
+
+[node name="sprite2" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.2, 0.2, 0.2, 0.117647 )
+texture = ExtResource( 3 )
+[connection signal="input_event" from="area_2d" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="area_2d" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="area_2d" to="." method="_on_area_2d_mouse_exited"]
